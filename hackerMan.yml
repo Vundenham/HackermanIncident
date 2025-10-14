@@ -1,0 +1,62 @@
+---
+- hosts: all
+  become: yes
+  vars:
+    ansible_ssh_pass: 'Password1!'
+    remote_user: 'hoodedman'
+    remote_host: '10.1.1.75'
+    local_file: '/home/user/Documents/conf.yml'
+    remote_path: '/tmp/nothing.txt'
+    container_name: 'dashy'
+    destination_file: '/app/user-data/conf.yml'
+    new_ip: '10.1.1.76'
+    
+
+  tasks:
+    - name: Copy configuration file to remote host
+      copy:
+        src: "{{ local_file }}"
+        dest: "{{ remote_path }}"
+        owner: hoodedman
+        group: hoodedman
+        mode: '0644'
+
+    - name: Copy file to Docker container
+      command: docker cp {{ remote_path }} {{ container_name }}:{{ destination_file }}
+      delegate_to: "{{ remote_host }}"
+      become: yes
+      vars:
+        ansible_become_pass: 'Password1!'
+
+    - name: Alias ls to echo out "INSTALL COWSAY NOW"
+      lineinfile:
+        path: /home/dsu/.bashrc
+        line: "alias ls='echo \"INSTALL COWSAY NOW\"'"
+        state: present
+
+    - name: Alias cd to sleep for 2 seconds before changing directory
+      lineinfile:
+        path: /home/dsu/.bashrc
+        line: "alias cd='sleep 2; cd'"
+        state: present
+
+    - name: Change permissions of /bin/docker to 000
+      file:
+        path: /bin/docker
+        mode: '0000'
+      become: yes
+
+    - name: Change the IP address to 10.1.1.76
+      command: nmcli con mod 'Wired connection 1' ipv4.addresses 10.1.1.76/24
+      delegate_to: "{{ remote_host }}"
+      become: yes
+      vars:
+        ansible_become_pass: 'Password1!'
+    
+    - name: Change the IP address to 10.1.1.76 part 2 bring it up
+      command: nmcli con up 'Wired connection 1'
+      delegate_to: "{{ remote_host }}"
+      become: yes
+      vars:
+        ansible_become_pass: 'Password1!'
+

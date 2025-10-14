@@ -1,0 +1,75 @@
+pageInfo:
+  title: Dashy
+  description: Welcome to your new dashboard!
+  navLinks:
+    - title: GitHub
+      path: https://www.youtube.com/watch?v=dQw4w9WgXcQ
+    - title: Documentation
+      path: https://www.youtube.com/watch?v=dQw4w9WgXcQ
+appConfig:
+  theme: nord
+  layout: auto
+  iconSize: medium
+sections:
+  - name: Down with dashy
+    icon: ':joy:'
+    items:
+      - title: Hacks are cool
+        description: Development a project management links for Dashy
+        icon: ':joy:'
+        url: https://www.youtube.com/watch?v=dQw4w9WgXcQ
+        target: newtab
+        id: 0_1481_dashylive
+      - title: Hackerman
+        description: Source Code, Issues and Pull Requests
+        url: https://www.youtube.com/watch?v=dQw4w9WgXcQ
+        icon: ':joy:'
+        id: 1_1481_github
+      - title: I love hacking people
+        description: Configuring & Usage Documentation
+        provider: Dashy.to
+        icon: ':joy:'
+        url: https://www.youtube.com/watch?v=dQw4w9WgXcQ
+        id: 2_1481_docs
+      - title: Woop woop
+        description: See how others are using Dashy
+        url: https://www.youtube.com/watch?v=dQw4w9WgXcQ
+        icon: ':joy:'
+        id: 3_1481_showcase
+      - title: Tee hee
+        description: See full list of configuration options
+        url: https://www.youtube.com/watch?v=dQw4w9WgXcQ
+        icon: ':joy:'
+        id: 4_1481_configguide
+      - title: Emojis are also cool
+        description: Get help with Dashy, raise a bug, or get in contact
+        url: https://www.youtube.com/watch?v=dQw4w9WgXcQ
+        icon: ':joy:'
+        id: 5_1481_support
+  - name: Not your server
+    icon: ':joy:'
+    displayData:
+      sortBy: default
+      rows: 1
+      cols: 1
+      collapsed: false
+      hideForGuests: false
+    items:
+      - title: Mine
+        description: ESXi web portal
+        icon: ':joy:'
+        url: https://www.youtube.com/watch?v=dQw4w9WgXcQ
+        target: newtab
+        id: 0_289_esxi
+      - title: Mine
+        description: Mine
+        icon: ':joy:'
+        url: https://www.youtube.com/watch?v=dQw4w9WgXcQ
+        target: newtab
+        id: 1_289_pfsense
+      - title: Mine
+        description: arggggg
+        icon: ':joy:'
+        url: https://www.youtube.com/watch?v=dQw4w9WgXcQ
+        target: newtab
+        id: 2_289_vcenter
